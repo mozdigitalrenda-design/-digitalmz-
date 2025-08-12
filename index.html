@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Renda Digital MZ - Transforme Seu Telemóvel em Renda Extra</title>
+<meta name="description" content="Descubra estratégias práticas para gerar renda extra usando o seu telemóvel. Conteúdo direcionado para iniciantes que querem aprender e monetizar habilidades digitais.">
+
+<!-- Fonte Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --neon-color: #00ffe7;
+    --text-light: #ccc;
+    --text-muted-dark: #666;
+    --bg-dark: #0d0d0d;
+    --bg-section: #111;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-dark);
+    color: #fff;
+  }
+
+  a { text-decoration: none; }
+
+  /* VSL Section */
+  #vsl-section {
+    text-align: center;
+    padding: 60px 10% 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #vsl-section h1 {
+    font-size: 34px;
+    color: var(--neon-color);
+    margin-bottom: 20px;
+  }
+
+  #vsl-section p {
+    font-size: 18px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 720px;
+  }
+
+  #vsl-section iframe {
+    width: 100%;
+    max-width: 720px;
+    height: 405px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,255,231,0.2);
+  }
+
+  .neon-btn {
+    margin-top: 40px;
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--bg-dark);
+    background: var(--neon-color);
+    border: none;
+    border-radius: 8px;
+    box-shadow:
+      0 0 12px var(--neon-color),
+      0 0 30px var(--neon-color);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+  }
+
+  .neon-btn:hover {
+    background: var(--bg-dark);
+    color: var(--neon-color);
+    box-shadow:
+      0 0 20px var(--neon-color),
+      0 0 40px var(--neon-color);
+  }
+
+  /* Sobre */
+  #sobre { padding: 60px 10%; text-align: center; }
+  #sobre h2 { font-size: 28px; color: var(--neon-color); margin-bottom: 20px; }
+  #sobre p { font-size: 17px; max-width: 700px; margin: 0 auto 20px; color: var(--text-light); }
+
+  /* Depoimentos */
+  #depoimentos { padding: 60px 10%; text-align: center; }
+  #depoimentos h2 { font-size: 28px; color: var(--neon-color); margin-bottom: 20px; }
+
+  .cards { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; margin-top: 40px; }
+  .card { background: #1a1a1a; padding: 20px; border-radius: 10px; max-width: 300px; text-align: center; box-shadow: 0 0 10px rgba(0,255,231,0.05); }
+  .card img { width: 80px; height: 80px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; border: 2px solid var(--neon-color); box-shadow: 0 0 10px rgba(0,255,231,0.3); }
+  .card p { font-size: 15px; margin-bottom: 10px; color: #eee; }
+  .card span { font-size: 14px; color: #888; }
+
+  /* Garantia */
+  #garantia { padding: 80px 10%; background: var(--bg-section); border: 2px solid var(--neon-color); border-radius: 12px; max-width: 800px; margin: 60px auto; text-align: center; }
+  #garantia h2 { font-size: 32px; margin-bottom: 25px; color: var(--neon-color); }
+  #garantia p { font-size: 18px; color: var(--text-light); line-height: 1.6; max-width: 650px; margin: 0 auto; }
+
+  /* Chamada final */
+  .cta-final { background: var(--bg-section); padding: 60px 10%; text-align: center; }
+  .cta-final h2 { font-size: 28px; color: var(--neon-color); margin-bottom: 20px; }
+
+  /* Rodapé */
+  footer { background: #000; color: var(--text-muted-dark); padding: 40px 10%; text-align: center; font-size: 14px; border-top: 2px solid var(--neon-color); }
+  footer p { margin: 10px 0; }
+  footer a { color: var(--neon-color); text-decoration: none; margin: 0 10px; font-weight: 600; transition: color 0.3s ease; }
+  footer a:hover { color: #00ffe7cc; }
+
+  /* Popup de saída (suave) */
+  #exit-popup { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); background: var(--bg-section); border: 2px solid var(--neon-color); border-radius: 15px; padding: 24px 28px; box-shadow: 0 0 30px var(--neon-color); color: white; z-index: 9999; width: 92%; max-width: 420px; text-align: center; opacity: 0; pointer-events: none; transition: all 0.25s ease; }
+  #exit-popup.show { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+  #exit-popup h3 { margin-bottom: 12px; color: var(--neon-color); }
+  #exit-popup p { font-size: 15px; margin-bottom: 18px; color: var(--text-light); }
+  #exit-popup button.close-btn { background: var(--neon-color); border: none; padding: 12px 22px; border-radius: 8px; color: var(--bg-dark); font-weight: 700; cursor: pointer; transition: background 0.3s ease; text-transform: uppercase; }
+  #exit-popup button.close-btn:hover { background: #00ccbe; }
+
+  /* Contador de pessoas (suave, não enganoso) */
+  #people-counter { position: fixed; bottom: 120px; right: 20px; background: var(--bg-section); border: 2px solid var(--neon-color); padding: 12px 18px; border-radius: 25px; color: var(--neon-color); font-weight: 600; font-size: 14px; box-shadow: 0 0 20px var(--neon-color); user-select: none; z-index: 9998; }
+
+  /* Contador regressivo (informativo) */
+  #countdown { margin-top: 20px; font-size: 18px; font-weight: 700; color: #ffcc66; text-shadow: 0 0 6px #ffcc66aa; }
+
+  /* Botão WhatsApp flutuante */
+  #whatsapp-btn { position: fixed; bottom: 20px; right: 20px; background: #25d366; width: 56px; height: 56px; border-radius: 50%; box-shadow: 0 0 15px #25d366; display: flex; justify-content: center; align-items: center; z-index: 9999; cursor: pointer; transition: background 0.3s ease; }
+  #whatsapp-btn:hover { background: #128c4a; }
+  #whatsapp-btn svg { fill: white; width: 28px; height: 28px; }
+
+  /* Banner consentimento cookies */
+  #cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; border: 2px solid var(--neon-color); color: var(--neon-color); padding: 15px 25px; border-radius: 12px; max-width: 360px; font-size: 14px; z-index: 10000; display: flex; align-items: center; justify-content: space-between; gap: 15px; box-shadow: 0 0 15px var(--neon-color); }
+  #cookie-banner p { margin: 0; flex: 1; }
+  #cookie-banner button { background: var(--neon-color); border: none; padding: 8px 16px; border-radius: 8px; color: var(--bg-dark); font-weight: 600; cursor: pointer; transition: background 0.3s ease; text-transform: uppercase; }
+  #cookie-banner button:hover { background: #00ccbe; }
+
+  @media (max-width: 768px) {
+    #vsl-section iframe { height: 220px; }
+    .cards { flex-direction: column; align-items: center; }
+    .neon-btn { width: 100%; max-width: 320px; }
+    #people-counter { bottom: 180px; right: 15px; font-size: 13px; }
+    #cookie-banner { max-width: 90%; font-size: 13px; flex-direction: column; gap: 10px; text-align: center; }
+    #cookie-banner button { width: 100%; }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- VSL Video Section -->
+<section id="vsl-section" aria-label="Vídeo explicativo sobre como gerar renda extra com o celular">
+  <h1>CONHEÇA UM JEITO SEGURO DE USAR O CELULAR PARA AUMENTAR SUA RENDA</h1>
+  <p>Assista ao vídeo para entender estratégias práticas que você pode aplicar com ferramentas simples e sem promessas irreais.</p>
+
+  <iframe src="https://www.youtube.com/embed/_Hv-mK10YRI" allowfullscreen title="Vídeo explicativo"></iframe>
+
+  <a href="https://venduspay.com/checkout.html?id=3188" class="neon-btn" role="button">Quero saber mais</a>
+
+  <div id="countdown" aria-live="polite" aria-atomic="true">Oferta por tempo limitado</div>
+</section>
+
+<!-- Sobre -->
+<section id="sobre" aria-label="Informações sobre a oportunidade de renda digital">
+  <h2>Uma forma prática de complementar sua renda</h2>
+  <p>
+    Conheça métodos testados por pessoas que começaram do zero e hoje usam ferramentas digitais para obter uma receita extra — sem promessas de ganhos garantidos.
+  </p>
+  <p>
+    Ideal para quem quer aprender habilidades digitais e transformar algumas horas livres em oportunidades reais.
+  </p>
+</section>
+
+<!-- Depoimentos com Imagem -->
+<section id="depoimentos" aria-label="Depoimentos de participantes satisfeitos">
+  <h2>O que dizem participantes reais</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="imagem/Ana.jpg" alt="Ana Maria de Maputo sorrindo após participar do programa" loading="lazy" />
+      <p>“Gostei muito do conteúdo prático — consegui aplicar em poucas semanas.”</p>
+      <span>— Ana M., Maputo</span>
+    </div>
+    <div class="card">
+      <img src="imagem/Nelson.jpg" alt="Nelson em seu local de trabalho" loading="lazy" />
+      <p>“Fácil de seguir e direto ao ponto.”</p>
+      <span>— Nelson J., Beira</span>
+    </div>
+    <div class="card">
+      <img src="imagem/ivone.jpg" alt="Ivone com o celular na mão" loading="lazy" />
+      <p>“Conteúdo confiável e aplicável no dia a dia.”</p>
+      <span>— Ivone L., Nampula</span>
+    </div>
+  </div>
+</section>
+
+<!-- Garantia -->
+<section id="garantia" aria-label="Teste sem compromisso">
+  <h2>Teste sem compromisso por 7 dias</h2>
+  <p>
+    Experimente o material por 7 dias. Se não considerar útil para seus objetivos, você pode solicitar o cancelamento durante esse período.
+  </p>
+</section>
+
+<!-- Chamada final -->
+<section class="cta-final" aria-label="Chamada para ação final">
+  <h2>Preparado(a) para aprender algo novo?</h2>
+  <a href="https://venduspay.com/checkout.html?id=3188" class="neon-btn" role="button">Sim! Quero começar</a>
+</section>
+
+<!-- Popup de saída (suave, não agressivo) -->
+<div id="exit-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title" aria-describedby="popup-desc">
+  <h3 id="popup-title">Antes de sair...</h3>
+  <p id="popup-desc">Leve um material gratuito que explica 3 ideias práticas para começar hoje — sem compromisso.</p>
+  <button class="close-btn" aria-label="Receber brinde">Receber brinde</button>
+</div>
+
+<!-- Contador pessoas online (mensagem informativa) -->
+<div id="people-counter" aria-live="polite">Várias pessoas estão vendo esta oportunidade agora</div>
+
+<!-- Rodapé -->
+<footer>
+  <p>&copy; 2025 Renda Digital MZ. Todos os direitos reservados.</p>
+  <p>
+    <a href="#vsl-section">Início</a> |
+    <a href="#sobre">Sobre</a> |
+    <a href="#depoimentos">Depoimentos</a> |
+    <a href="#garantia">Teste</a> |
+    <a href="privacidade.html">Política de Privacidade</a>
+  </p>
+  <p>Contato: <a href="mailto:contato@rendadigitalmz.com">contato@rendadigitalmz.com</a></p>
+</footer>
+
+<!-- Scripts -->
+<script>
+  // Contador regressivo informativo (mantém estado na sessão para evitar resets enganosos)
+  const countdownElem = document.getElementById('countdown');
+  const SESSION_KEY = 'rdm_countdown_end';
+  const DURATION_SECONDS = 15 * 60; // 15 minutos de exemplo (pode ser ajustado para eventos reais)
+
+  function getEndTime() {
+    const stored = sessionStorage.getItem(SESSION_KEY);
+    if (stored) return parseInt(stored, 10);
+    const end = Math.floor(Date.now() / 1000) + DURATION_SECONDS;
+    sessionStorage.setItem(SESSION_KEY, end);
+    return end;
+  }
+
+  let endTime = getEndTime();
+
+  function formatTime(t) {
+    const min = Math.floor(t / 60).toString().padStart(2, '0');
+    const sec = (t % 60).toString().padStart(2, '0');
+    return `${min}:${sec}`;
+  }
+
+  function updateCountdown() {
+    const now = Math.floor(Date.now() / 1000);
+    const left = endTime - now;
+    if (left <= 0) { countdownElem.textContent = "Oferta por tempo limitado"; return; }
+    countdownElem.textContent = "Oferta por tempo limitado — " + formatTime(left);
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Exit popup: ativado por intenção de saída (suave) e por rolagem alta no mobile
+  const exitPopup = document.getElementById('exit-popup');
+  const closeBtn = exitPopup.querySelector('.close-btn');
+  let popupShown = false;
+
+  function showPopup() {
+    if (!popupShown) { exitPopup.classList.add('show'); popupShown = true; }
+  }
+
+  closeBtn.addEventListener('click', () => { exitPopup.classList.remove('show'); });
+
+  // Mostrar quando o usuário mover o cursor para cima (desktop) ou rolar 80% da página (mobile)
+  document.addEventListener('mouseout', function(e) {
+    if (e.clientY < 10) showPopup();
+  });
+  window.addEventListener('scroll', function() {
+    if ((window.scrollY + window.innerHeight) / document.body.scrollHeight > 0.8) showPopup();
+  });
+
+  // People counter: mensagem informativa simples (não numérica)
+  const peopleCounter = document.getElementById('people-counter');
+  // Mantemos mensagem estática para evitar impressões enganosas
+
+  // Banner Consentimento Cookies
+  const cookieBanner = document.createElement('div');
+  cookieBanner.id = 'cookie-banner';
+  cookieBanner.innerHTML = `
+    <p>Usamos cookies para melhorar sua experiência e personalizar anúncios.</p>
+    <button id="accept-cookies">Aceitar</button>
+  `;
+
+  function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    if (cookieBanner.parentNode) document.body.removeChild(cookieBanner);
+  }
+
+  if (!localStorage.getItem('cookiesAccepted')) {
+    document.body.appendChild(cookieBanner);
+    document.getElementById('accept-cookies').addEventListener('click', acceptCookies);
+  }
+
+  // Nota: scripts de tracking podem ser carregados aqui de forma assíncrona no final do body
+</script>
+
+<!-- Meta Pixel (carregar de forma assíncrona e não bloqueante) -->
+<script>
+  (function(){
+    // Carregar pixel de forma assíncrona para não bloquear render
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    s.onload = function(){
+      try{
+        if (!window.fbq) { window.fbq = function(){ window.fbq.callMethod ? window.fbq.callMethod.apply(window.fbq, arguments) : window.fbq.queue.push(arguments); }; if (!window._fbq) window._fbq = window.fbq; window.fbq.queue = []; window.fbq.loaded = true; window.fbq.version = '2.0'; }
+        fbq('init', '24266148316382784')
+        fbq('track', 'PageView');
+      }catch(e){console.warn('FB Pixel init failed', e);}    
+    };
+    document.head.appendChild(s);
+  })();
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=24266148316382784&ev=PageView&noscript=1" />
+</noscript>
+
+</body>
+</html>
